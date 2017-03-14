@@ -27,3 +27,15 @@ That scaffold creates all the CRUD routes in the controller as well as views and
 For any of these, use the `-force` flag to override existing files: `./grailsw generate-all com.whatever.Vehicle -force`
 
 Static scaffolding generates the code and files for you so you can customize as you like. It also uses the associations set up in the models to properly link tables and actions.
+
+## URL Mapping
+
+```
+static mappings = {
+        "/$controller/$action?/$id?(.$format)?"{
+            constraints {
+                // apply constraints here
+            }
+        }
+```
+Allow users to customize their accepted formats by adding a parameter to the URL, eg: `http://localhost:8080/home/index.json` so they'll receive the response as a json object.
