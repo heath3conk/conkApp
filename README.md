@@ -28,6 +28,30 @@ For any of these, use the `-force` flag to override existing files: `./grailsw g
 
 Static scaffolding generates the code and files for you so you can customize as you like. It also uses the associations set up in the models to properly link tables and actions.
 
+## Views
+
+Grails looks for views in the `app/views` folder. It resolves controller actions by trying to match a folder under view with the name of the controller or you can give the controller more specific instructions to go to a different view.
+
+```
+class SomeController {
+  def someAction() {
+    render view: 'anotherView'
+  }
+}
+```
+If the file name is undecorated, Grails will look in the same matching folder for a view with that name. To render a view in another folder, specify a path relative to `app/views`, such as `render view: '/another/view'`.
+
+## Embedded Groovy
+
+To embed the value of a variable: `${variable}`
+
+Include Groovy code in the view with the `<g:x>` and `</g:x>` tags, where *x* might be an *if* block, *each* loop, form, etc.
+```
+<g:if test="${flash.message}">
+  <regular html to render ${flash.message}>
+</g:if>
+```
+
 ## URL Mapping
 
 ```
