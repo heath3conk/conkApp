@@ -52,6 +52,14 @@ Include Groovy code in the view with the `<g:x>` and `</g:x>` tags, where *x* mi
 </g:if>
 ```
 
+## Services
+
+**"Controllers for web logic; services for business logic"**
+
+By convention, Grails will configure any Groovy classes within the grails-app/services directory as services. 
+
+Services will be "wired" as Spring beans in the Grails application context, which means you can refer to them simply by name from any other Spring bean (including controllers and domain classes).
+
 ## URL Mapping
 
 ```
