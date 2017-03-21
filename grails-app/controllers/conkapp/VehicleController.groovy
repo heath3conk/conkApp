@@ -18,6 +18,8 @@ class VehicleController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def valueEstimateService
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         /*
@@ -37,7 +39,7 @@ class VehicleController {
     }
 
     def show(Vehicle vehicle) {
-        respond vehicle
+        respond vehicle, model: [estimatedValue: valueEstimateService.getEstimate(vehicle)]
     }
 
     def create() {
