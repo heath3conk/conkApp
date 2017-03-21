@@ -2,6 +2,15 @@
 <head>
     <meta name="layout" content="public"/>
     <title>Home Page</title>
+
+    <asset:javascript src="jquery-3.2.0.js" />
+
+    <script type="text/javascript" >
+    $(document).ready(function() {
+        console.log( "jQuery 3.2.0 loaded!" );
+    })
+
+</script>
 </head>
 
 <body>
@@ -18,7 +27,9 @@
         <ul style="margin: 0 auto; width:180px">
             <g:each in="${vehicleList}" var="vehicle">
                 <li>
-                    ${vehicle.name} - ${vehicle.year} ${vehicle.make.name} ${vehicle.model.name}
+                   <g:link controller="vehicle" action="show" id="${vehicle.id}">
+                       ${vehicle.name} - ${vehicle.year} ${vehicle.make.name} ${vehicle.model.name}
+                   </g:link>
                 </li>
             </g:each>
         </ul>
